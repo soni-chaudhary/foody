@@ -1,5 +1,4 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:foody/home/filter_page.dart';
@@ -7,19 +6,11 @@ import 'package:foody/menu/favorites.dart';
 import 'package:foody/menu/location.dart';
 import 'package:foody/menu/perfile.dart';
 import 'package:foody/menu/shoping.dart';
+import 'package:foody/models/home_card_model.dart';
 
 class HomePage extends StatefulWidget {
   @override
   State<HomePage> createState() => _HomePageState();
-}
-
-class Topimage {
-  late String? name;
-  late String? detains;
-  late String? img;
-  late int? rating;
-  late int? totleAmount;
-  Topimage({this.name, this.detains, this.img, this.rating, this.totleAmount});
 }
 
 class _HomePageState extends State<HomePage> {
@@ -88,7 +79,7 @@ class _HomePageState extends State<HomePage> {
         automaticallyImplyLeading: false,
         actions: [
           Padding(
-            padding: const EdgeInsets.only(top: 40, right: 30),
+            padding: const EdgeInsets.only(top: 35, right: 30),
             child: InkWell(
               onTap: () {
                 Navigator.push(
@@ -316,13 +307,6 @@ class _HomePageState extends State<HomePage> {
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(9.0),
-                        // boxShadow: [
-                        //   BoxShadow(
-                        //     color: Colors.grey.shade300,
-                        //     spreadRadius: 3,
-                        //     offset: Offset(0, 1),
-                        //   )
-                        // ]
                       ),
                       child: CarouselSlider(
                         items: bottomImage
@@ -395,7 +379,7 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),

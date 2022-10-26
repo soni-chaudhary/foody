@@ -151,7 +151,7 @@ class FavoritesPages extends StatelessWidget {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.only(left: 6),
+                        padding: EdgeInsets.only(left: 6, right: 6),
                         child: Container(
                           height: 30,
                           child: Row(

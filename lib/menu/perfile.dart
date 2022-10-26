@@ -125,7 +125,7 @@ class ProfilePages extends StatelessWidget {
                                   color: Colors.grey.shade600, fontSize: 16),
                             ),
                             Text(
-                              "54.25",
+                              "\$54.25",
                               style:
                                   TextStyle(color: Colors.orange, fontSize: 25),
                             )
