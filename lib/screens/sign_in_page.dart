@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:foody/home/first_page.dart';
+import 'package:foody/menu/home-page.dart';
 import 'package:foody/screens/forgot_password.dart';
+import 'package:foody/screens/sign_up.dart';
 
 class SignInpage extends StatefulWidget {
   const SignInpage({super.key});
@@ -86,7 +89,10 @@ class SignInpageState extends State<SignInpage> {
                       color: Colors.white,
                     ),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => FirstPage()));
+                  },
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(6.0),
                   ),
@@ -141,9 +147,17 @@ class SignInpageState extends State<SignInpage> {
               const SizedBox(
                 height: 100,
               ),
-              const Text(
-                "Don't have an account? SignUp",
-                style: TextStyle(color: Colors.white),
+              InkWell(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const SignUppage()));
+                },
+                child: const Text(
+                  "Don't have an account? SignUp",
+                  style: TextStyle(color: Colors.white),
+                ),
               ),
             ],
           ),

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:foody/home/add_to_order.dart';
+import 'package:foody/home/checkout.dart';
 import 'package:foody/home/most_popular_item.dart';
-import 'package:foody/home/trending_page.dart';
+import 'package:foody/home/order_page.dart';
 
 class FilterPages extends StatefulWidget {
   @override
@@ -13,19 +15,19 @@ class Category {
 }
 
 class _FilterPagesState extends State<FilterPages> {
-  final List<Category> cateories = [
-    Category(categoryText: "Top Rated"),
-    Category(categoryText: "Nearest Me"),
-    Category(categoryText: "Cost Hight to Low"),
-    Category(categoryText: "Cost Low to Hight"),
-    Category(categoryText: "Most Popular"),
-  ];
-  final List<Category> filter = [
-    Category(categoryText: "Open New"),
-    Category(categoryText: "Credit Card"),
-    Category(categoryText: "Alcohol Served"),
-  ];
-  bool? _val = false;
+  // final List<Category> cateories = [
+  //   Category(categoryText: "Top Rated"),
+  //   Category(categoryText: "Nearest Me"),
+  //   Category(categoryText: "Cost Hight to Low"),
+  //   Category(categoryText: "Cost Low to Hight"),
+  //   Category(categoryText: "Most Popular"),
+  // ];
+  // final List<Category> filter = [
+  //   Category(categoryText: "Open New"),
+  //   Category(categoryText: "Credit Card"),
+  //   Category(categoryText: "Alcohol Served"),
+  // ];
+  // bool? _val = false;
   static double _lowerValue = 1.0;
   static double _upperValue = 10.0;
   RangeValues values = RangeValues(_lowerValue, _upperValue);
@@ -53,11 +55,11 @@ class _FilterPagesState extends State<FilterPages> {
             padding: const EdgeInsets.only(top: 37, right: 30),
             child: InkWell(
               onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => FilterPages(),
-                    ));
+                // Navigator.push(
+                //     context,
+                //     MaterialPageRoute(
+                //       builder: (context) => FilterPages(),
+                //     ));
               },
               child: const Text(
                 "clear",
@@ -102,19 +104,17 @@ class _FilterPagesState extends State<FilterPages> {
             height: 1,
             color: Colors.grey.shade200,
           ),
-
           const SizedBox(
             height: 32,
             child: ListTile(
-              title: Text(
+              title: const Text(
                 'Nearest Me',
                 style: TextStyle(
                   color: Colors.black,
                 ),
               ),
               // onTap: () {
-              //   Navigator.push(context,
-              //       MaterialPageRoute(builder: (context) => Trending()));
+
               // }
             ),
           ),
@@ -147,20 +147,19 @@ class _FilterPagesState extends State<FilterPages> {
             height: 1,
             color: Colors.grey.shade200,
           ),
-          const SizedBox(
+          SizedBox(
             height: 32,
             child: ListTile(
-              title: Text(
-                'Cost Low to Hight',
-                style: TextStyle(
-                  color: Colors.black,
+                title: const Text(
+                  'Cost Low to Hight',
+                  style: TextStyle(
+                    color: Colors.black,
+                  ),
                 ),
-              ),
-              // onTap: () {
-              //   Navigator.push(context,
-              //       MaterialPageRoute(builder: (context) => Trending()));
-              // }
-            ),
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => AddToOrder()));
+                }),
           ),
           Container(
             margin: const EdgeInsets.only(
@@ -190,95 +189,10 @@ class _FilterPagesState extends State<FilterPages> {
             height: 1,
             color: Colors.grey.shade200,
           ),
-          // Container(
-          //   height: 248,
-          //   child: Expanded(
-          //     child: ListView.builder(
-          //         itemCount: cateories.length,
-          //         itemBuilder: (context, index) {
-          //           return Expanded(
-          //             child: Column(
-          //               children: [
-          //                 Padding(
-          //                   padding: const EdgeInsets.only(left: 20, right: 20),
-          //                   child: Row(
-          //                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          //                     children: [
-          //                       Text(
-          //                         cateories[index].categoryText,
-          //                         style: const TextStyle(
-          //                           color: Colors.black,
-          //                           fontSize: 17,
-          //                         ),
-          //                       ),
-
-          //                       Checkbox(
-          //                           checkColor: Colors.redAccent,
-          //                           value: _val,
-          //                           onChanged: (newValue) {
-          //                             setState(() {
-          //                               _val = newValue;
-          //                             });
-          //                           }),
-          //                       // CheckboxListTile(
-          //                       //     value: _val,
-          //                       //     onChanged: (value) {
-          //                       //       _val = value;
-          //                       //     })
-          //                     ],
-          //                   ),
-          //                 ),
-          //                 Container(
-          //                   height: 1,
-          //                   color: Colors.grey.shade300,
-          //                 ),
-          //               ],
-          //             ),
-          //           );
-          //         }),
-          //   ),
-          // ),
           SizedBox(
             height: 10,
           ),
           Text_heading(text: "FILTER"),
-          // Container(
-          //   height: 150,
-          //   child: Expanded(
-          //     child: ListView.builder(
-          //         itemCount: filter.length,
-          //         itemBuilder: (context, index) {
-          //           return Expanded(
-          //             child: Column(
-          //               children: [
-          //                 Padding(
-          //                   padding: const EdgeInsets.only(left: 20, right: 20),
-          //                   child: Row(
-          //                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          //                     children: [
-          //                       Text(
-          //                         filter[index].categoryText,
-          //                         style: const TextStyle(
-          //                           color: Colors.black,
-          //                           fontSize: 17,
-          //                         ),
-          //                       ),
-          //                       Checkbox(
-          //                           value: false,
-          //                           onChanged: (bool? newValue) {}),
-          //                     ],
-          //                   ),
-          //                 ),
-          //                 Container(
-          //                   height: 1,
-          //                   color: Colors.grey.shade300,
-          //                 ),
-          //               ],
-          //             ),
-          //           );
-          //         }),
-          //   ),
-          // ),
           const SizedBox(
             height: 32,
             child: ListTile(
@@ -331,20 +245,19 @@ class _FilterPagesState extends State<FilterPages> {
             height: 1,
             color: Colors.grey.shade200,
           ),
-          const SizedBox(
+          SizedBox(
             height: 32,
             child: ListTile(
-              title: Text(
-                'Alcohol Served',
-                style: TextStyle(
-                  color: Colors.black,
+                title: Text(
+                  'Alcohol Served',
+                  style: TextStyle(
+                    color: Colors.black,
+                  ),
                 ),
-              ),
-              // onTap: () {
-              //   Navigator.push(context,
-              //       MaterialPageRoute(builder: (context) => Trending()));
-              // }
-            ),
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => OrderPage()));
+                }),
           ),
           Container(
             margin: const EdgeInsets.only(
@@ -353,7 +266,6 @@ class _FilterPagesState extends State<FilterPages> {
             height: 1,
             color: Colors.grey.shade200,
           ),
-
           Text_heading(text: "ADDITIONAL FILTER"),
           Padding(
             padding: const EdgeInsets.only(left: 8, right: 8, top: 20),

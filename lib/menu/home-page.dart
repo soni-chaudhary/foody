@@ -2,6 +2,9 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:foody/home/filter_page.dart';
+import 'package:foody/home/item_detail_page.dart';
+import 'package:foody/home/most_popular_item.dart';
+import 'package:foody/home/trending_page.dart';
 import 'package:foody/menu/favorites.dart';
 import 'package:foody/menu/location.dart';
 import 'package:foody/menu/perfile.dart';
@@ -15,6 +18,11 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int selected = 0;
+  List items = [
+    "images/intro.jpg",
+    "images/shutterstock.jpg",
+    "images/yepy.jpg"
+  ];
   final _pageOption = [
     HomePage(),
     LocationPages(),
@@ -136,20 +144,28 @@ class _HomePageState extends State<HomePage> {
                     padding: const EdgeInsets.only(top: 25),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: const [
-                        Text(
+                      children: [
+                        const Text(
                           "Trending this week",
                           style: TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.bold,
                               fontSize: 20),
                         ),
-                        Text(
-                          "View all»",
-                          style: TextStyle(
-                              color: Colors.red,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 16),
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Trending()));
+                          },
+                          child: const Text(
+                            "View all»",
+                            style: TextStyle(
+                                color: Colors.red,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16),
+                          ),
                         ),
                       ],
                     ),
@@ -179,17 +195,27 @@ class _HomePageState extends State<HomePage> {
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Container(
-                                      child: ClipRRect(
-                                        borderRadius: const BorderRadius.only(
-                                          topLeft: Radius.circular(5.0),
-                                          topRight: Radius.circular(5.0),
-                                        ),
-                                        child: Image.asset(
-                                          item.img.toString(),
-                                          fit: BoxFit.cover,
-                                          width:
-                                              MediaQuery.of(context).size.width,
-                                          height: 140,
+                                      child: InkWell(
+                                        onTap: () {
+                                          Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      ItemDetailpage()));
+                                        },
+                                        child: ClipRRect(
+                                          borderRadius: const BorderRadius.only(
+                                            topLeft: Radius.circular(5.0),
+                                            topRight: Radius.circular(5.0),
+                                          ),
+                                          child: Image.asset(
+                                            item.img.toString(),
+                                            fit: BoxFit.cover,
+                                            width: MediaQuery.of(context)
+                                                .size
+                                                .width,
+                                            height: 140,
+                                          ),
                                         ),
                                       ),
                                     ),
@@ -271,20 +297,28 @@ class _HomePageState extends State<HomePage> {
               width: MediaQuery.of(context).size.width - 20,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
-                  Text(
+                children: [
+                  const Text(
                     "Most popular",
                     style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.bold,
                         fontSize: 20),
                   ),
-                  Text(
-                    "26places»",
-                    style: TextStyle(
-                        color: Colors.red,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16),
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => MostPopular()));
+                    },
+                    child: const Text(
+                      "26places»",
+                      style: TextStyle(
+                          color: Colors.red,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16),
+                    ),
                   ),
                 ],
               ),
@@ -343,6 +377,109 @@ class _HomePageState extends State<HomePage> {
                       margin: const EdgeInsets.only(left: 15, bottom: 2),
                       child: Text(
                         "963 Madyson Drve Suite 678",
+                        style: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.grey,
+                            fontSize: 12),
+                      ),
+                    ),
+                    Container(
+                      height: 30,
+                      margin: const EdgeInsets.only(left: 10, right: 20),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          RatingBar.builder(
+                            maxRating: 1,
+                            itemSize: 20,
+                            // itemPadding: EdgeInsets.symmetric(
+                            //     horizontal: 2.0),
+                            itemBuilder: (context, _) => const Icon(
+                              Icons.star,
+                              color: Colors.amber,
+                            ),
+                            onRatingUpdate: (rating) {},
+                          ),
+                          Text(
+                            "Open 8.00 AM",
+                            style: const TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black,
+                                fontSize: 16),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Card(
+              elevation: 5,
+              child: Container(
+                color: Colors.white,
+                height: 200,
+                // color: Colors.cyanAccent,
+                width: MediaQuery.of(context).size.width - 20,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      margin: const EdgeInsets.only(
+                          left: 10, right: 10, top: 15, bottom: 10),
+                      height: 90,
+                      width: MediaQuery.of(context).size.width - 20,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(9.0),
+                      ),
+                      child: CarouselSlider(
+                        items: items
+                            .map(
+                              (item) => Container(
+                                  child: ClipRRect(
+                                borderRadius: BorderRadius.circular(5),
+                                child: InkWell(
+                                  onTap: () {
+                                    // Navigator.push(
+                                    //     context,
+                                    //     MaterialPageRoute(
+                                    //         builder: (context) =>
+                                    //             ItemDetailpage()));
+                                  },
+                                  child: Image.asset(
+                                    item,
+                                    fit: BoxFit.cover,
+                                    // width: MediaQuery.of(context).size.width,
+                                  ),
+                                ),
+                              )),
+                            )
+                            .toList(),
+                        options: CarouselOptions(
+                          // autoPlay: true,
+                          // height: 220,
+                          viewportFraction: 0.42,
+                        ),
+                      ),
+                    ),
+                    Container(
+                      margin: const EdgeInsets.only(left: 15, bottom: 1),
+                      child: Text(
+                        "Nom Wah Nolita",
+                        style: const TextStyle(
+                            color: Colors.black,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    Container(
+                      margin: const EdgeInsets.only(left: 15, bottom: 2),
+                      child: Text(
+                        "525 Upton Mission",
                         style: const TextStyle(
                             fontWeight: FontWeight.bold,
                             color: Colors.grey,

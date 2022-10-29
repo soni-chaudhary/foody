@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:foody/home/first_page.dart';
 import 'package:foody/menu/home-page.dart';
+import 'package:foody/screens/choose_country.dart';
 import 'package:foody/screens/forgot_password.dart';
 import 'package:sms_autofill/sms_autofill.dart';
 
@@ -24,7 +25,7 @@ class OTPPageState extends State<VerifyOTPPage> {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => const ForgotPassword(),
+                builder: (context) => const ChooseCountry(),
               ),
             );
           },
@@ -100,7 +101,7 @@ class OTPPageState extends State<VerifyOTPPage> {
                   color: Colors.red,
                   onPressed: () {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => ShopPage()));
+                        MaterialPageRoute(builder: (context) => FirstPage()));
                   },
                   child: Text(
                     "Verify Now",

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:foody/home/first_page.dart';
+import 'package:foody/screens/currunt_location.dart';
 import 'package:foody/screens/forgot_password.dart';
+import 'package:foody/screens/varify_otp.dart';
 
 class ChooseCountry extends StatefulWidget {
   const ChooseCountry({super.key});
@@ -297,7 +300,7 @@ class _ChooseCountryState extends State<ChooseCountry> {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => const ForgotPassword(),
+                builder: (context) => const CurruntLocation(),
               ),
             );
           },
@@ -352,9 +355,18 @@ class _ChooseCountryState extends State<ChooseCountry> {
                           height: 55,
                           child: Padding(
                             padding: const EdgeInsets.all(15),
-                            child: Text(
-                              _foundCountryName[index]["name"],
-                              style: const TextStyle(fontSize: 18),
+                            child: InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const VerifyOTPPage()));
+                              },
+                              child: Text(
+                                _foundCountryName[index]["name"],
+                                style: const TextStyle(fontSize: 18),
+                              ),
                             ),
                           ),
                         ),

@@ -33,7 +33,7 @@ class ProfilePages extends StatelessWidget {
           Padding(
             padding: EdgeInsets.only(top: 37, right: 30),
             child: Text(
-              "",
+              "Edit",
               style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
@@ -141,20 +141,172 @@ class ProfilePages extends StatelessWidget {
               height: 15,
             ),
             Container(
-              width: MediaQuery.of(context).size.width - 20,
+              margin: const EdgeInsets.only(top: 10, left: 15, right: 15),
+              // height: MediaQuery.of(context).size.height - 450,
+              width: MediaQuery.of(context).size.width - 30,
               child: Card(
                 color: Colors.white,
                 elevation: 5,
                 shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(
-                    Radius.circular(5),
+                    Radius.circular(8),
                   ),
                 ),
-                child: Column(
-                  children: [],
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 17, right: 17, top: 10),
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        const ListTile(
+                          contentPadding: EdgeInsets.only(left: 0, right: 20),
+                          title: Text(
+                            'Payment Card',
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15),
+                          ),
+                          subtitle: Text(
+                            'Add a credit or debit card',
+                            style: TextStyle(
+                                color: Colors.grey,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 12),
+                          ),
+                          trailing: Icon(
+                            Icons.arrow_forward_ios_outlined,
+                          ),
+                        ),
+                        Container(
+                          height: 1,
+                          color: Colors.grey.shade200,
+                        ),
+                        const ListTile(
+                          contentPadding: EdgeInsets.only(left: 0, right: 20),
+                          title: Text(
+                            'Address',
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15),
+                          ),
+                          subtitle: Text(
+                            'Add or remove a delivery address',
+                            style: TextStyle(
+                                color: Colors.grey,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 12),
+                          ),
+                          trailing: Icon(
+                            Icons.arrow_forward_ios_outlined,
+                          ),
+                        ),
+                        Container(
+                          height: 1,
+                          color: Colors.grey.shade200,
+                        ),
+                        const ListTile(
+                          contentPadding: EdgeInsets.only(left: 0, right: 20),
+                          title: Text(
+                            'Refer Friends',
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15),
+                          ),
+                          subtitle: Text(
+                            'Get \$10.00 Free',
+                            style: TextStyle(
+                                color: Colors.redAccent,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 12),
+                          ),
+                          trailing: Icon(
+                            Icons.arrow_forward_ios_outlined,
+                          ),
+                        ),
+                        Container(
+                          height: 1,
+                          color: Colors.grey.shade200,
+                        ),
+                        const ListTile(
+                          contentPadding: EdgeInsets.only(left: 0, right: 20),
+                          title: Text(
+                            'Delivery Support',
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15),
+                          ),
+                          leading: Icon(Icons.delivery_dining),
+                          trailing: Icon(
+                            Icons.arrow_forward_ios_outlined,
+                          ),
+                        ),
+                        Container(
+                          height: 1,
+                          color: Colors.grey.shade200,
+                        ),
+                        const ListTile(
+                          contentPadding: EdgeInsets.only(left: 0, right: 20),
+                          title: Text(
+                            'Setting',
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15),
+                          ),
+                          leading: Icon(Icons.settings),
+                          trailing: Icon(
+                            Icons.arrow_forward_ios_outlined,
+                          ),
+                        ),
+                        Container(
+                          height: 1,
+                          color: Colors.grey.shade200,
+                        ),
+                        const ListTile(
+                          contentPadding: EdgeInsets.only(left: 0, right: 20),
+                          title: Text(
+                            'Terms of user',
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15),
+                          ),
+                          leading: Icon(Icons.text_format),
+                          trailing: Icon(
+                            Icons.arrow_forward_ios_outlined,
+                          ),
+                        ),
+                        Container(
+                          height: 1,
+                          color: Colors.grey.shade200,
+                        ),
+                        const ListTile(
+                          contentPadding: EdgeInsets.only(left: 0, right: 20),
+                          title: Text(
+                            'Privacy Policy',
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15),
+                          ),
+                          leading: Icon(Icons.lock),
+                          trailing: Icon(
+                            Icons.arrow_forward_ios_outlined,
+                          ),
+                        ),
+                        Container(
+                          height: 1,
+                          color: Colors.grey.shade200,
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),

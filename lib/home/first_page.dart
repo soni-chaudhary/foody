@@ -6,12 +6,12 @@ import 'package:foody/menu/location.dart';
 import 'package:foody/menu/perfile.dart';
 import 'package:foody/menu/shoping.dart';
 
-class ShopPage extends StatefulWidget {
+class FirstPage extends StatefulWidget {
   @override
-  State<ShopPage> createState() => _HomePageState();
+  State<FirstPage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<ShopPage> {
+class _HomePageState extends State<FirstPage> {
   int selected = 0;
   final _pageOption = [
     HomePage(),

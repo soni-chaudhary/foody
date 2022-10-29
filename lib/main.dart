@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:foody/Screens/Discover_place.dart';
 import 'package:foody/screens/sign_in_page.dart';
+import 'package:foody/screens/staring_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -40,7 +41,7 @@ class SplashScreen extends State<MyHomePage> {
         const Duration(seconds: 3),
         (() => Navigator.pushAndRemoveUntil(
             context,
-            MaterialPageRoute(builder: (context) => const DicscoverPlace()),
+            MaterialPageRoute(builder: (context) => StratingPage()),
             (route) => false)));
   }
 

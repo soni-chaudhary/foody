@@ -5,6 +5,11 @@ import 'package:foody/menu/home-page.dart';
 import 'package:foody/models/home_card_model.dart';
 
 class MostPopular extends StatelessWidget {
+  List items = [
+    "images/intro.jpg",
+    "images/shutterstock.jpg",
+    "images/yepy.jpg"
+  ];
   List<Topimage> bottomImage = [
     Topimage(
         img: "images/burger.jpg",
@@ -229,13 +234,13 @@ class MostPopular extends StatelessWidget {
                         borderRadius: BorderRadius.circular(9.0),
                       ),
                       child: CarouselSlider(
-                        items: bottomImage
+                        items: items
                             .map(
                               (item) => Container(
                                   child: ClipRRect(
                                 borderRadius: BorderRadius.circular(5),
                                 child: Image.asset(
-                                  item.img.toString(),
+                                  item,
                                   fit: BoxFit.cover,
                                   // width: MediaQuery.of(context).size.width,
                                 ),

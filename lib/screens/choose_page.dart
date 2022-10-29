@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:foody/models/initial_pages_model.dart';
 import 'package:foody/screens/pick_up.dart';
 
 class ChoosePage extends StatelessWidget {
-  const ChoosePage({super.key});
+  ChoosePage({super.key});
+  int _currentIndex = 1;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,8 +17,8 @@ class ChoosePage extends StatelessWidget {
             padding: const EdgeInsets.only(top: 20, right: 30),
             child: InkWell(
               onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const PickUp()));
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => PickUp()));
               },
               child: Text(
                 "Skip»",
@@ -73,8 +75,23 @@ class ChoosePage extends StatelessWidget {
               height: 8,
               width: 150,
               decoration: BoxDecoration(
-                color: Colors.grey.shade300,
+                color: Colors.grey.shade200,
                 borderRadius: BorderRadius.circular(20),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: List.generate(
+                  content.length,
+                  (index) => Container(
+                    height: 8,
+                    width: 50,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: _currentIndex == index
+                            ? Colors.redAccent
+                            : Colors.grey.shade200),
+                  ),
+                ),
               ),
             ),
           ],
